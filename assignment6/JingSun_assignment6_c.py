@@ -55,8 +55,8 @@ num=tpoints.size
 for i in range(num):
     rate(30)
     theta_a=xpoints[i]
-    lx=np.cos(theta_a)
-    ly=np.sin(theta_a)
+    lx=-np.sin(theta_a)
+    ly=-np.cos(theta_a)
     s2.pos=vector(lx,ly,0)
     l.pos=vector(lx,ly,0)
     l.axis=vector(0,0,0) - vector(lx,ly,0)
