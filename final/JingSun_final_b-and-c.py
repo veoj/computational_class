@@ -95,10 +95,10 @@ print(Rt)
 print(len(R))
 
 
-# In[11]:
+# In[61]:
 
 #use the formular 6.121 in textbook
-gamma=-5#it is negative because we are looking for a maximum value
+gamma=-10#it is negative because we are looking for a maximum value
 step=10000
 Ra=np.asarray(R)
 x1=5500
@@ -123,17 +123,20 @@ for i in range(step):
         #xpoints[i]=x_temp//1
 
 
-# In[12]:
+# In[62]:
 
 print(xpoints)
 
 
-# In[13]:
+# In[65]:
 
 print(xpoints[len(xpoints)-1])
+print(np.amax(R))
+print(tem[5501-5500])
+print(R[5501-5500])
 
 
-# So,the temperature of maximum efficiency of the light bulb is 5501 K.
+# So,the temperature of maximum efficiency of the light bulb is 5501 K. The maximum efficiency is 8.11
 # But it is not practical to run a tungsten-filament light bult at this temperature, 
 # because the melting point of tungsten is about 3700 K.
 
