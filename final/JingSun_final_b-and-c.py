@@ -95,16 +95,16 @@ print(Rt)
 print(len(R))
 
 
-# In[61]:
+# In[11]:
 
 #use the formular 6.121 in textbook
-gamma=-10#it is negative because we are looking for a maximum value
-step=10000
+gamma=-5#it is negative because we are looking for a maximum value
+step=50000
 Ra=np.asarray(R)
 x1=5500
 x2=5700
 
-xpoints=np.arange(len(R))
+xpoints=np.arange(step)
 #ypoints=Ra
 
 for i in range(step):
@@ -113,30 +113,37 @@ for i in range(step):
     if i == 1:
         xpoints[i]=x2
     if i == 2:
-        xpoints[i]=int(xpoints[i-1]+(gamma*((Ra[i-1]-Ra[i-2])/(xpoints[i-1]-xpoints[i-2]))))
+        xpoints[i]=int(xpoints[i-1]-(gamma*((Ra[x1-5500]-Ra[x2-5500])/(xpoints[i-1]-xpoints[i-2]))))
 
-    if i > 2 and i < len(R):
+    if i > 2:
+        num1=xpoints[i-1]-5500
+        num2=xpoints[i-2]-5500
+        new=int(xpoints[i-1]-(gamma*((Ra[num1]-Ra[num2])/(xpoints[i-1]-xpoints[i-2]))))
         if xpoints[i-1]-xpoints[i-2] == 0:
-            xpoints[i] = xpoints[i-1]
+            xpoints[i]=xpoints[i-1]
         else:
-            xpoints[i]=int(xpoints[i-1]+(gamma*((Ra[i-1]-Ra[i-2])/(xpoints[i-1]-xpoints[i-2]))))
+            xpoints[i] = new
+#        if xpoints[i-1]-xpoints[i-2] == 0:
+#            xpoints[i] = xpoints[i-1]
+#        else:
+#            xpoints[i]=int(xpoints[i-1]+(gamma*((Ra[i-1]-Ra[i-2])/(xpoints[i-1]-xpoints[i-2]))))
         #xpoints[i]=x_temp//1
 
 
-# In[62]:
+# In[12]:
 
 print(xpoints)
 
 
-# In[65]:
+# In[13]:
 
 print(xpoints[len(xpoints)-1])
-print(np.amax(R))
-print(tem[5501-5500])
-print(R[5501-5500])
+max_va=xpoints[len(xpoints)-1]
+print(tem[max_va-5500])
+print(R[max_va-5500])
 
 
-# So,the temperature of maximum efficiency of the light bulb is 5501 K. The maximum efficiency is 8.11
+# So,the temperature of maximum efficiency of the light bulb is 5539 K. The maximum efficiency is 8.10
 # But it is not practical to run a tungsten-filament light bult at this temperature, 
 # because the melting point of tungsten is about 3700 K.
 
